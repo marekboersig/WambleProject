@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 283936781}
   - component: {fileID: 283936780}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: MapGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,14 +147,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e718fcc6379c3364084afc72b5bb79d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mapSettings: {fileID: 11400000, guid: ee7f8fbe85503a74b8d1d6572b8ea97b, type: 2}
   tilemap: {fileID: 467481254}
   woodTile: {fileID: 11400000, guid: d2faaa506f30d944b92c792be05648fd, type: 2}
   grassTile: {fileID: 11400000, guid: 58c491ccc4bab0c4eb164e7b9cf42ea3, type: 2}
   waterTile: {fileID: 11400000, guid: fd3b4c56753483f45bad4c5d53dc2e49, type: 2}
   sandTile: {fileID: 11400000, guid: 1ec0811ae7fdcc84a816ca8a9939727f, type: 2}
-  mapWidth: 200
-  mapHeight: 200
-  noiseScale: 0.1
 --- !u!4 &283936781
 Transform:
   m_ObjectHideFlags: 0
@@ -479,6 +477,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c0165b676723fa40b23b4a43c66bbd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mapSettings: {fileID: 11400000, guid: ee7f8fbe85503a74b8d1d6572b8ea97b, type: 2}
+  zoomLevels:
+  - 4
+  - 8
+  - 12
+  - 16
+  - 20
+  - 30
+  - 40
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,11 +615,43 @@ Transform:
   - {fileID: 467481252}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1403452638
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1403452639}
+  m_Layer: 0
+  m_Name: ==== Map ====
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1403452639
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403452638}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 61.51802, y: 107.196045, z: -0.017490968}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 619394802}
+  - {fileID: 1403452639}
   - {fileID: 1124559980}
   - {fileID: 283936781}
