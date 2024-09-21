@@ -4,18 +4,20 @@ using UnityEngine.Tilemaps;
 public class MapGenerator : MonoBehaviour
 {
     public MapSettings mapSettings;
+    public MapSpriteSettings tiles;
 
     public Tilemap tilemap;
-    public TileBase woodTile;
-    public TileBase grassTile;
-    public TileBase waterTile;
-    public TileBase sandTile;
 
     void Start()
     {
+        // initiate with the seed given in the settings and generate map
+        Random.InitState(mapSettings.seed);
         GenerateMap();   
     }
 
+    /// <summary>
+    /// Generate the map with given height and width. Uses a perlin noise height distribution to set the specific tiles.
+    /// </summary>
     void GenerateMap() 
     {
         for (int x = 0; x < mapSettings.mapHeight; x++)
@@ -27,19 +29,22 @@ public class MapGenerator : MonoBehaviour
 
                 if (perlinValue < 0.1f)
                 {
-                    tilemap.SetTile(tilePosition, waterTile);
+                    tilemap.SetTile(tilePosition, tiles.water);
                 }
-                else if (perlinValue < 0.8f)
+                else if (perlinValue < 0.85f)
                 {
-                    tilemap.SetTile(tilePosition, grassTile);
+                    if (Mathf.PerlinNoise(2 * x * mapSettings.forestNoiseScale, 2 * y * mapSettings.forestNoiseScale) > mapSettings.forestRatio)
+                        tilemap.SetTile(tilePosition, tiles.woods);
+                    else 
+                        tilemap.SetTile(tilePosition, tiles.grass);
                 }
                 else if (perlinValue < 0.95f)
                 {
-                    tilemap.SetTile(tilePosition, woodTile);
+                    tilemap.SetTile(tilePosition, tiles.mountain);
                 }
                 else 
                 {
-                    tilemap.SetTile(tilePosition, sandTile);
+                    tilemap.SetTile(tilePosition, tiles.snow);
                 }
             }
         }

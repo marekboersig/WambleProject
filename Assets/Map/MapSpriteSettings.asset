@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: MapSpriteSettings
+  m_EditorClassIdentifier: Assembly-CSharp::MapSpriteSettings
+  grass: {fileID: 11400000, guid: a2512004beb37c34cb543607ff399798, type: 2}
+  water: {fileID: 11400000, guid: f5059022345c17e459667374a21dbcb6, type: 2}
+  mountain: {fileID: 11400000, guid: 3d0d0b5b91c739241ad66423a0326d00, type: 2}
+  snow: {fileID: 11400000, guid: 2a2fda69d9282854889f08ac11f800e9, type: 2}
+  woods: {fileID: 11400000, guid: be12863866f566f44b7614f3e7f3e8fe, type: 2}

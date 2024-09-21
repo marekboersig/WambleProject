@@ -148,11 +148,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapSettings: {fileID: 11400000, guid: ee7f8fbe85503a74b8d1d6572b8ea97b, type: 2}
+  tiles: {fileID: 11400000, guid: 134ebdb9ad8205b4ba6d4183499b5491, type: 2}
   tilemap: {fileID: 467481254}
-  woodTile: {fileID: 11400000, guid: d2faaa506f30d944b92c792be05648fd, type: 2}
-  grassTile: {fileID: 11400000, guid: 58c491ccc4bab0c4eb164e7b9cf42ea3, type: 2}
-  waterTile: {fileID: 11400000, guid: fd3b4c56753483f45bad4c5d53dc2e49, type: 2}
-  sandTile: {fileID: 11400000, guid: 1ec0811ae7fdcc84a816ca8a9939727f, type: 2}
 --- !u!4 &283936781
 Transform:
   m_ObjectHideFlags: 0

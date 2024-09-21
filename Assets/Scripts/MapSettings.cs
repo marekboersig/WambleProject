@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 [CreateAssetMenu(fileName = "MapSettings", menuName = "Game/Map Settings", order = 1)]
 public class MapSettings : ScriptableObject
@@ -9,5 +10,20 @@ public class MapSettings : ScriptableObject
     public int seed = 0;
     public float noiseScale = 0.07f;
 
+    public float forestNoiseScale = 1.0f;
+    public float forestRatio = 0.8f;
+
     // add further map settings here
+}
+
+[CreateAssetMenu(fileName = "MapSpriteSettings", menuName = "Game/Map Sprite Settings", order = 1)]
+public class MapSpriteSettings : ScriptableObject
+{
+    public TileBase grass;
+    public TileBase water;
+    public TileBase mountain;
+    public TileBase snow;
+    public TileBase woods;
+
+    // add further tile types here
 }

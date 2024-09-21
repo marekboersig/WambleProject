@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c22f5b7c426d6854da27c6f0ac2ba76b, type: 3}
   m_Name: MapSettings
   m_EditorClassIdentifier: 
-  mapWidth: 200
-  mapHeight: 200
+  mapWidth: 500
+  mapHeight: 500
+  seed: 0
+  noiseScale: 0.07
+  forestNoiseScale: 0.02
+  forestRatio: 0.7
