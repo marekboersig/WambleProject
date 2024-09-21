@@ -16,8 +16,8 @@ public class MapSettings : ScriptableObject
     // add further map settings here
 }
 
-[CreateAssetMenu(fileName = "MapSpriteSettings", menuName = "Game/Map Sprite Settings", order = 1)]
-public class MapSpriteSettings : ScriptableObject
+[CreateAssetMenu(fileName = "Tiles", menuName = "Game/Tile Collection", order = 1)]
+public class TileCollection : ScriptableObject
 {
     public TileBase grass;
     public TileBase water;

@@ -4,7 +4,7 @@ using UnityEngine.Tilemaps;
 public class MapGenerator : MonoBehaviour
 {
     public MapSettings mapSettings;
-    public MapSpriteSettings tiles;
+    public TileCollection tiles;
 
     public Tilemap tilemap;
 
