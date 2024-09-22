@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapSettings: {fileID: 11400000, guid: ee7f8fbe85503a74b8d1d6572b8ea97b, type: 2}
-  tiles: {fileID: 11400000, guid: 134ebdb9ad8205b4ba6d4183499b5491, type: 2}
+  tiles: {fileID: 11400000, guid: 14980ddde91f08242a846518a4313a45, type: 2}
   tilemap: {fileID: 467481254}
 --- !u!4 &283936781
 Transform:
@@ -567,6 +567,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &679236485
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 679236487}
+  - component: {fileID: 679236486}
+  m_Layer: 0
+  m_Name: MouseController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &679236486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679236485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0272bd57e06099a4abe9cb2baeeef8bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilemap: {fileID: 467481254}
+  tiles: {fileID: 11400000, guid: 14980ddde91f08242a846518a4313a45, type: 2}
+--- !u!4 &679236487
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679236485}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 296.8616, y: 205.01796, z: -1.3556786}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1124559978
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,3 +698,4 @@ SceneRoots:
   - {fileID: 1403452639}
   - {fileID: 1124559980}
   - {fileID: 283936781}
+  - {fileID: 679236487}

@@ -25,5 +25,9 @@ public class TileCollection : ScriptableObject
     public TileBase snow;
     public TileBase woods;
 
+    public TileBase grassSelected;
+    public TileBase mountainSelected;
+    public TileBase woodsSelected;
+
     // add further tile types here
 }
