@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Tiles
   m_EditorClassIdentifier: Assembly-CSharp::TileCollection
-  grass: {fileID: 11400000, guid: a2512004beb37c34cb543607ff399798, type: 2}
-  water: {fileID: 11400000, guid: f5059022345c17e459667374a21dbcb6, type: 2}
-  mountain: {fileID: 11400000, guid: 3d0d0b5b91c739241ad66423a0326d00, type: 2}
-  snow: {fileID: 11400000, guid: 2a2fda69d9282854889f08ac11f800e9, type: 2}
-  woods: {fileID: 11400000, guid: be12863866f566f44b7614f3e7f3e8fe, type: 2}
+  grass: {fileID: 11400000, guid: ced23ee9173d1a0438c2749979ec7122, type: 2}
+  water: {fileID: 11400000, guid: d41fc0adf1464fb45af1ac94680d9973, type: 2}
+  mountain: {fileID: 11400000, guid: 232331ba24e56334985ec9dbde3e3f8f, type: 2}
+  snow: {fileID: 11400000, guid: 23e633f3904915d47a0774845a3fcde5, type: 2}
+  woods: {fileID: 11400000, guid: db59ca8b963589a4e9a54f0dad5b5012, type: 2}
+  emptyTile: {fileID: 11400000, guid: be29b0c8636ed584987523d3f5793f9f, type: 2}
+  highlightTile: {fileID: 11400000, guid: ceebedd16d722554ca74764513105656, type: 2}

@@ -3,10 +3,11 @@ using UnityEngine.Tilemaps;
 
 public class MapGenerator : MonoBehaviour
 {
-    public MapSettings mapSettings;
-    public TileCollection tiles;
+    [SerializeField] public MapSettings mapSettings;
+    [SerializeField] public TileCollection tiles;
 
-    public Tilemap tilemap;
+    [SerializeField] public Tilemap baseMap;
+    [SerializeField] public Tilemap highlightMap;
 
     void Start()
     {
@@ -26,25 +27,26 @@ public class MapGenerator : MonoBehaviour
             {
                 float perlinValue = Mathf.PerlinNoise(x * mapSettings.noiseScale, y * mapSettings.noiseScale);
                 Vector3Int tilePosition = new Vector3Int(x, y, 0);
+                highlightMap.SetTile(tilePosition, tiles.emptyTile);
 
                 if (perlinValue < 0.1f)
                 {
-                    tilemap.SetTile(tilePosition, tiles.water);
+                    baseMap.SetTile(tilePosition, tiles.water);
                 }
                 else if (perlinValue < 0.85f)
                 {
                     if (Mathf.PerlinNoise(2 * x * mapSettings.forestNoiseScale, 2 * y * mapSettings.forestNoiseScale) > mapSettings.forestRatio)
-                        tilemap.SetTile(tilePosition, tiles.woods);
+                        baseMap.SetTile(tilePosition, tiles.woods);
                     else 
-                        tilemap.SetTile(tilePosition, tiles.grass);
+                        baseMap.SetTile(tilePosition, tiles.grass);
                 }
                 else if (perlinValue < 0.95f)
                 {
-                    tilemap.SetTile(tilePosition, tiles.mountain);
+                    baseMap.SetTile(tilePosition, tiles.mountain);
                 }
                 else 
                 {
-                    tilemap.SetTile(tilePosition, tiles.snow);
+                    baseMap.SetTile(tilePosition, tiles.snow);
                 }
             }
         }

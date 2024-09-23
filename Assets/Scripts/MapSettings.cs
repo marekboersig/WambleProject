@@ -25,5 +25,8 @@ public class TileCollection : ScriptableObject
     public TileBase snow;
     public TileBase woods;
 
+    public TileBase emptyTile;
+    public TileBase highlightTile;
+
     // add further tile types here
 }
