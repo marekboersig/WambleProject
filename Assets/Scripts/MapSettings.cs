@@ -29,4 +29,17 @@ public class TileCollection : ScriptableObject
     public TileBase highlightTile;
 
     // add further tile types here
+         
+    public string GetTileName(TileBase tile)
+    {
+        if (tile == grass) return "Grass";
+        if (tile == water) return "Water";
+        if (tile == mountain) return "Mountain";
+        if (tile == snow) return "Snow";
+        if (tile == woods) return "Woods";
+        if (tile == emptyTile) return "Empty";
+        if (tile == highlightTile) return "Highlight";
+        
+        return "Unknown";
+    }
 }
