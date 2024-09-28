@@ -20,11 +20,29 @@ public class SceneManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.M))
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("MapScene");
+            LoadMapScene();
         }
         else if (Input.GetKeyDown(KeyCode.V))
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("VillageScene");
+            LoadVillageScene();
+        }
+    }
+
+    public void LoadMapScene()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MapScene");
+        if (MapGenerator.Instance != null)
+        {
+            MapGenerator.Instance.gameObject.SetActive(true);
+        }
+    }
+
+    public void LoadVillageScene()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("VillageScene");
+        if (MapGenerator.Instance != null)
+        {
+            MapGenerator.Instance.gameObject.SetActive(false);
         }
     }
 }

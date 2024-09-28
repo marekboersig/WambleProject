@@ -1,14 +1,19 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using static UnityEngine.Rendering.RayTracingAccelerationStructure;
 
 public class TileHighlighting : MonoBehaviour
 {
-    public Tilemap baseMap;
-    public Tilemap highlightMap;
-
-    public TileCollection tiles;
+    private Tilemap baseMap;
+    private Tilemap highlightMap;
+    private TileCollection tiles;
 
     private Vector3Int previousPosition;
+
+    private void Start()
+    {
+        InitializeReferences();
+    }
 
     void Update()
     {
@@ -27,6 +32,20 @@ public class TileHighlighting : MonoBehaviour
                 previousPosition = cellPosition;
                 highlightMap.SetTile(cellPosition, tiles.highlightTile);
             }
+        }
+    }
+
+    void InitializeReferences()
+    {
+        if (MapGenerator.Instance != null)
+        {
+            baseMap = MapGenerator.Instance.baseMap;
+            highlightMap = MapGenerator.Instance.highlightMap;
+            tiles = MapGenerator.Instance.tiles;
+        }
+        else
+        {
+            Debug.LogWarning("MapGenerator instance not found.");
         }
     }
 }

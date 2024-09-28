@@ -15,7 +15,10 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
+        cam = Camera.main;
+        currentZoomIndex = zoomLevels.Count / 2;
         InitializeCamera();
+        UpdateCameraZoom();
     }
 
     void Update()
@@ -24,21 +27,29 @@ public class CameraController : MonoBehaviour
         HandleZoom();
     }
 
-    void InitializeCamera()
+    void InitializeCamera(Vector3? position = null, int? zoomLevel = null)
     {
-        cam = Camera.main;
-        currentZoomIndex = zoomLevels.Count / 2;
-        CenterCamera();
-        UpdateCameraZoom();
-    }
+        if (position.HasValue)
+        {
+            transform.position = position.Value;
+        } 
+        else
+        {
+            Vector3 centerPos = new Vector3(mapSettings.mapWidth / 2f, mapSettings.mapHeight / 2f, -10f);
+            transform.position = centerPos;
+        }
 
-    /// <summary>
-    /// Center camera on the map.
-    /// </summary>
-    void CenterCamera()
-    {
-        Vector3 centerPos = new Vector3(mapSettings.mapWidth / 2f, mapSettings.mapHeight / 2f, -10f);
-        transform.position = centerPos;
+        if (zoomLevel.HasValue)
+        {
+            cam.orthographicSize = zoomLevels[zoomLevel.Value];
+            currentZoomIndex = zoomLevel.Value;
+        } 
+        else
+        {
+            UpdateCameraZoom();
+        }
+
+        ClampCamera();
     }
 
     /// <summary>
