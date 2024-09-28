@@ -3,17 +3,26 @@ using UnityEngine.Tilemaps;
 
 public class MapGenerator : MonoBehaviour
 {
+    public static MapGenerator Instance { get; private set; }
+
     [SerializeField] public MapSettings mapSettings;
     [SerializeField] public TileCollection tiles;
 
     [SerializeField] public Tilemap baseMap;
     [SerializeField] public Tilemap highlightMap;
 
-    void Start()
+    private void Awake()
     {
-        // initiate with the seed given in the settings and generate map
-        Random.InitState(mapSettings.seed);
-        GenerateMap();   
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            GenerateMap();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     /// <summary>
@@ -21,6 +30,9 @@ public class MapGenerator : MonoBehaviour
     /// </summary>
     void GenerateMap() 
     {
+        // initiate with the seed given in the settings
+        Random.InitState(mapSettings.seed);
+
         for (int x = 0; x < mapSettings.mapHeight; x++)
         {
             for (int y = 0; y < mapSettings.mapWidth; y++)
