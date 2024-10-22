@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 
 public class CameraController : MonoBehaviour
 {
@@ -17,7 +16,7 @@ public class CameraController : MonoBehaviour
     {
         cam = Camera.main;
         currentZoomIndex = zoomLevels.Count / 2;
-        InitializeCamera();
+        InitiateCamera();
         UpdateCameraZoom();
     }
 
@@ -27,29 +26,13 @@ public class CameraController : MonoBehaviour
         HandleZoom();
     }
 
-    void InitializeCamera(Vector3? position = null, int? zoomLevel = null)
+    /// <summary>
+    /// Center camera on the map.
+    /// </summary>
+    void InitiateCamera()
     {
-        if (position.HasValue)
-        {
-            transform.position = position.Value;
-        } 
-        else
-        {
-            Vector3 centerPos = new Vector3(mapSettings.mapWidth / 2f, mapSettings.mapHeight / 2f, -10f);
-            transform.position = centerPos;
-        }
-
-        if (zoomLevel.HasValue)
-        {
-            cam.orthographicSize = zoomLevels[zoomLevel.Value];
-            currentZoomIndex = zoomLevel.Value;
-        } 
-        else
-        {
-            UpdateCameraZoom();
-        }
-
-        ClampCamera();
+        Vector3 centerPos = new Vector3(mapSettings.mapWidth / 2f, mapSettings.mapHeight / 2f, -10f);
+        transform.position = centerPos;
     }
 
     /// <summary>
