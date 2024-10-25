@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEditor;
 
 public class MapGenerator : MonoBehaviour
 {
@@ -9,18 +10,17 @@ public class MapGenerator : MonoBehaviour
     [SerializeField] public Tilemap baseMap;
     [SerializeField] public Tilemap highlightMap;
 
-    void Start()
-    {
-        // initiate with the seed given in the settings and generate map
-        Random.InitState(mapSettings.seed);
-        GenerateMap();   
-    }
-
     /// <summary>
     /// Generate the map with given height and width. Uses a perlin noise height distribution to set the specific tiles.
     /// </summary>
+    [ContextMenu("Generate Map")]
     void GenerateMap() 
     {
+        Random.InitState(mapSettings.seed);
+        
+        baseMap.ClearAllTiles();
+        highlightMap.ClearAllTiles();
+
         for (int x = 0; x < mapSettings.mapHeight; x++)
         {
             for (int y = 0; y < mapSettings.mapWidth; y++)
