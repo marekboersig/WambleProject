@@ -20,6 +20,24 @@ public class Village : MonoBehaviour
     private void Update()
     {
         ressourceManager.calcRessouces();
+        RessSet tmp = ressourceManager.getCurrent();
+        Debug.Log(tmp.wood + "  " + tmp.clay + "  " + tmp.iron);
+    }
+
+    [ContextMenu("TestBuilding")]
+    public void BuildIfPossible()
+    {
+        RessSet tmp = buildings[0].productionCost().getRessSet();
+        if (ressourceManager.check(tmp))
+        {
+            ressourceManager.subtract(tmp);
+            buildings[0].levelUp();
+            Debug.LogWarning("Upgraded Wood");
+        } 
+        else
+        {
+            Debug.LogWarning("Not enough!");
+        }
     }
 }
 

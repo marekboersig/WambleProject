@@ -1,12 +1,33 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-public class BuildingData : MonoBehaviour 
+[CreateAssetMenu(fileName = "BuildingData", menuName = "Scriptable Objects/BuildingData")]
+public class BuildingData : ScriptableObject
 {
-    public static BuildingData Instance { get; private set; }
-    
-    private int[] productionValues = new int[10] { 
+    [SerializeField] private static BuildingData _instance;
+    public static BuildingData Instance 
+    { get
+        {
+            if (_instance == null)
+            {
+                _instance = Resources.Load(typeof(BuildingData).Name) as BuildingData;
+                _instance.initializeBuildingCosts();
+            }
+            return _instance;
+        }
+    }
+
+    private const int MAIN_BUILDING_MAX = 2;
+    private const int WOOD_PROD_MAX = 2;
+    // add further max levels here
+
+
+    private int[] productionValues = new int[10] {
         10, 20, 30, 40, 50, 60, 70, 80, 90, 100
     };
+
+    private Dictionary<BuildingType, int[,]> buildingCosts;
 
     public int getProductionValue(int level)
     {
@@ -19,15 +40,34 @@ public class BuildingData : MonoBehaviour
         return productionValues[level];
     }
 
-    private void Awake()
+    public FullRessSet getCost(BuildingType buildingType, int level) // change to FullRessSet
     {
-        if (Instance != null && Instance != this)
+        int[] tmp = GetRow(buildingCosts[buildingType], level);
+        return new FullRessSet { wood = tmp[0], clay = tmp[1], iron = tmp[2], time = tmp[3], pop = tmp[4] };
+    }
+
+    private void initializeBuildingCosts()
+    {
+        buildingCosts = new Dictionary<BuildingType, int[,]>();
+        buildingCosts[BuildingType.MAIN_BUILDING] = new int[MAIN_BUILDING_MAX, 5]
         {
-            Destroy(this);
-        }
-        else 
+            { 10, 10, 10, 4, 5},
+            { 10, 10, 10, 4, 5},
+        };
+
+        buildingCosts[BuildingType.WOOD_PROD] = new int[WOOD_PROD_MAX, 5]
         {
-            Instance = this;
-        }
+            { 10, 10, 10, 4, 5 },
+            { 10, 10, 10, 4, 5 }
+        };
+
+        // add further building costs here
+    }
+
+    private int[] GetRow(int[,] matrix, int rowIndex)
+    {
+        return Enumerable.Range(0, matrix.GetLength(1))
+            .Select(x => matrix[rowIndex, x])
+            .ToArray();
     }
 }

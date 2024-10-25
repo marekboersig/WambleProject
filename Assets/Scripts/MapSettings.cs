@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 [CreateAssetMenu(fileName = "MapSettings", menuName = "Game/Map Settings", order = 1)]
 public class MapSettings : ScriptableObject

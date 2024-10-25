@@ -46,10 +46,3 @@ public class RessourceManager
         iron = iron + ironProd * Time.deltaTime > maxCap ? maxCap : iron + ironProd * Time.deltaTime;
     }
 }
-
-public class RessSet 
-{
-    public int wood;
-    public int clay;
-    public int iron;
-}

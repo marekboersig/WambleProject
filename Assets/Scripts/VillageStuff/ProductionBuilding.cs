@@ -46,10 +46,8 @@ public class ProductionBuilding : IBuilding
         }  
     }
 
-    RessSet IBuilding.productionCost()
+    FullRessSet IBuilding.productionCost()
     {
-        // fetch prod cost
-        // return it
-        return null;
+        return BuildingData.Instance.getCost(_buildingType, currentLevel + 1);
     }
 }
