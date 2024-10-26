@@ -1,12 +1,16 @@
 using System;
 using UnityEngine;
 
-public class RessourceManager
+public class RessourceManager : MonoBehaviour
 {
     private float wood = 0, clay = 0, iron = 0;
     public int woodProd = 1, clayProd = 1, ironProd = 1;
     public int maxCap = 5000;
 
+    private void Update()
+    {
+        calcRessouces();
+    }
     public void add(RessSet ress)
     {
         wood = wood + ress.wood > maxCap ? maxCap : wood + ress.wood;

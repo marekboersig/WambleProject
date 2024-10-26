@@ -1,27 +1,30 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Village : MonoBehaviour
 {
     public Coordinates coords;
     public RessourceManager ressourceManager;
-    private IBuilding[] buildings;
+    public BuildingManager buildingManager;
+    private IBuilding[] buildings;   
 
     private void Start()
     {
-        ressourceManager = new RessourceManager();
+        ressourceManager = this.AddComponent<RessourceManager>();    
 
-        buildings = new IBuilding[3] {
-            new ProductionBuilding(BuildingType.WOOD_PROD, ressourceManager), 
-            new ProductionBuilding(BuildingType.CLAY_PROD, ressourceManager), 
+        buildings = new IBuilding[4] {
+            new ProductionBuilding(BuildingType.WOOD_PROD, ressourceManager),
+            new ProductionBuilding(BuildingType.WOOD_PROD, ressourceManager),
+            new ProductionBuilding(BuildingType.CLAY_PROD, ressourceManager),
             new ProductionBuilding(BuildingType.IRON_PROD, ressourceManager)
         };
+        buildingManager = this.AddComponent<BuildingManager>().setup(buildings);
     }
 
     private void Update()
     {
-        ressourceManager.calcRessouces();
-        RessSet tmp = ressourceManager.getCurrent();
-        Debug.Log(tmp.wood + "  " + tmp.clay + "  " + tmp.iron);
+        //RessSet tmp = ressourceManager.getCurrent();
+        //Debug.Log(tmp.wood + "  " + tmp.clay + "  " + tmp.iron);
     }
 
     [ContextMenu("TestBuilding")]
@@ -33,11 +36,17 @@ public class Village : MonoBehaviour
             ressourceManager.subtract(tmp);
             buildings[0].levelUp();
             Debug.LogWarning("Upgraded Wood");
-        } 
+        }
         else
         {
             Debug.LogWarning("Not enough!");
         }
+    }
+
+    [ContextMenu("build wood")]
+    public void woodInQueue()
+    {
+        buildingManager.fillBuildingQueue(BuildingType.WOOD_PROD);
     }
 }
 

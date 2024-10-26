@@ -19,7 +19,7 @@ public class BuildingData : ScriptableObject
     }
 
     private const int MAIN_BUILDING_MAX = 2;
-    private const int WOOD_PROD_MAX = 2;
+    private const int WOOD_PROD_MAX = 3;
     // add further max levels here
 
 
@@ -58,7 +58,8 @@ public class BuildingData : ScriptableObject
         buildingCosts[BuildingType.WOOD_PROD] = new int[WOOD_PROD_MAX, 5]
         {
             { 10, 10, 10, 4, 5 },
-            { 10, 10, 10, 4, 5 }
+            { 10, 10, 10, 4, 5 },
+            { 10, 10, 10, 5, 5 }
         };
 
         // add further building costs here
