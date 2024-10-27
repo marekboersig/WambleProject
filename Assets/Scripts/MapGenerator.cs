@@ -4,11 +4,11 @@ using UnityEditor;
 
 public class MapGenerator : MonoBehaviour
 {
-    [SerializeField] public MapSettings mapSettings;
-    [SerializeField] public TileCollection tiles;
+    public MapSettings mapSettings;
+    public TileCollection tiles;
 
-    [SerializeField] public Tilemap baseMap;
-    [SerializeField] public Tilemap highlightMap;
+    public Tilemap baseMap;
+    public Tilemap highlightMap;
 
     /// <summary>
     /// Generate the map with given height and width. Uses a perlin noise height distribution to set the specific tiles.
