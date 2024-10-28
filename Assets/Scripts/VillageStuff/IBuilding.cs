@@ -13,5 +13,4 @@ public enum BuildingType
     IRON_PROD,
     STORAGE,
     FARM,
-    LENGTH,
 }
